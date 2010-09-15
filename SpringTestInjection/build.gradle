@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.springframework:spring-context:3.0.4.RELEASE'
+  testCompile 'junit:junit:4.8.1', 'org.mockito:mockito-all:1.8.5', 'org.springframework:spring-test:3.0.4.RELEASE'
+}
