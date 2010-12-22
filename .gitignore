@@ -1,3 +1,7 @@
 **/**/.idea
 **/**/out
 **/**/target
+/ContinuousIntegration/GrailsSample/cobertura.ser
+/ContinuousIntegration/GrailsSample/CodeNarcReport.html
+/ContinuousIntegration/GrailsSample/GrailsSample-grailsPlugins.iml
+/ContinuousIntegration/GrailsSample/GrailsSample.iml
