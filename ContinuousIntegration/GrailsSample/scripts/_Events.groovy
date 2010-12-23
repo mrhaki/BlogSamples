@@ -6,7 +6,7 @@ eventTestPhasesStart = {
 }
 
 eventStatusFinal = {
-    def writer = new FileWriter('teamcity-info.xml')
+    def writer = new FileWriter('../../teamcity-info.xml')
     def info = new MarkupBuilder(writer)
     info.build {
         statisticValue(key: 'CodeCoverageB', value: 1.0)
