@@ -9,8 +9,10 @@ eventStatusFinal = {
     def writer = new FileWriter('../../teamcity-info.xml')
     def info = new MarkupBuilder(writer)
     info.build {
-        statisticValue(key: 'CodeCoverageB', value: 1.0)
-        statisticValue(key: 'CodeCoverageL', value: 0.21)
+        statisticValue(key: 'CodeCoverageB', value: 100)
+        statisticValue(key: 'CodeCoverageL', value: 21)
+        statisticValue(key: 'CodeCoverageAbsLCovered', value: 5)
+        statisticValue(key: 'CodeCoverageAbsLTotal', value: 5)
     }
 }
 
