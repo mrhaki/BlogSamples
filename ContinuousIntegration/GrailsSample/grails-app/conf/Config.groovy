@@ -87,8 +87,8 @@ log4j = {
 }
 
 codenarc {
-    reportType = 'xml'
-    reportName = 'target/codenarc-results.xml'
+    reportType = 'html'
+    reportName = 'target/codenarc.html'
 }
 
 gmetrics.outputFile = 'target/gmetrics.html'
