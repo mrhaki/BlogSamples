@@ -91,4 +91,4 @@ codenarc {
     reportName = 'target/codenarc-results.xml'
 }
 
-gmetrics.outputFile = 'target/gmetrics/index.html'
+gmetrics.outputFile = 'target/gmetrics.html'
