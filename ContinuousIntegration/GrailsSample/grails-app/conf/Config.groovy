@@ -85,3 +85,10 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+codenarc {
+    reportType = 'xml'
+    reportName = 'target/codenarc-results.xml'
+}
+
+gmetrics.outputFile = 'target/gmetrics/index.html'
