@@ -1,0 +1,141 @@
+body {
+    margin: 20px auto;
+    width: 960px;
+    position: relative;
+}
+
+#banner {
+    margin-top: 21px;
+}
+
+#left, #right {
+    float: left;
+    margin-top: 21px;
+}
+
+#left {
+    width: 627px;
+    margin-right: 14px;
+}
+
+#right {
+    width: 319px;
+}
+
+#box-left, #box-right {
+    float: left;
+    margin-top: 10px;
+}
+
+#box-left {
+    margin-right: 26px;
+    width: 284px;
+    background-color: #ccff99;
+    padding: 5px;
+}
+
+#box-right {
+    width: 297px;
+    background-color: #ccc;
+    padding: 5px;
+}
+
+#main {
+    float: left;
+    width: 960px;
+    margin-top: 21px;
+}
+
+#main ul {
+    padding: 0;
+    margin: 0;
+}
+
+#main ul li {
+    display: block;
+    margin: 0;
+    padding: 5px 0;
+}
+
+#header {
+    width: 960px;
+    border-bottom: 1px solid #ccc;
+}
+
+#footer {
+    float: left;
+    height: 70px;
+    margin-top: 15px;
+    padding-top: 15px;
+    width: 960px;
+    border-top: 1px solid #ccc;
+}
+
+#logo {
+    position: relative;
+    float: left;
+    width: 300px;
+    margin: 0 0 10px 0;
+}
+
+#logo p {
+    position: absolute;
+    top: 16px;
+    left: 56px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#logo a {
+    background: url('../images/logo.png') no-repeat;
+    display: block;
+    height: 62px;
+    text-indent: -9000px;
+    width: 285px;
+}
+
+#searchform {
+    clear: right;
+    float: right;
+    width: 292px;
+    margin: 4px 0 0 0;
+    text-align: right;
+}
+
+#navmenu {
+    float: left;
+    width: 100%;
+    height: 40px;
+    margin: -20px 0 0 0;
+}
+
+#navmenu ul {
+    list-style-type: none;
+    margin: 10px 0 10px 0px;
+    padding: 0;
+}
+
+#navmenu ul li {
+    display: inline;
+    position: relative;
+    float: left;
+}
+
+#navmenu ul li a {
+    display: block;
+    padding: 0 18px 10px 0px;
+}
+
+#list-products ul {
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+#list-products ul li {
+    display: block;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
