@@ -1,4 +1,4 @@
-<%-- File: grails-app/views/layout/fiveblocks.gsp --%>
+<%-- File: grails-app/views/layouts/fiveblocks.gsp --%>
 <html>
     <head>
         <meta name="layout" content="page"/>
