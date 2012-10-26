@@ -1,0 +1,3 @@
+task wrapper(type:Wrapper) {
+    distributionUrl = uri('../repo/company-gradle-1.0.1-bin.zip')
+}

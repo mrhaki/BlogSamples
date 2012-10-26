@@ -1,0 +1,113 @@
+// Base plugin adds configuration
+// support and build<Configuration> 
+// and upload<Configuration> tasks.
+apply plugin: 'base'
+
+// Version is the version of the
+// company Gradle. This can be independent
+// of the Gradle version.
+version = '1.0.2'
+
+ext {
+    // Gradle version to use as template for 
+    // the custom Gradle distribution.
+    gradleVersion = '1.2'
+}
+
+// Extra configuration to store
+// company Gradle ZIP artifact and
+// use for uploading.
+configurations {
+    companyGradle    
+}
+
+
+task downloadGradle(type: DownloadGradle) {
+    description 'Download Gradle version from Gradle distributions website'
+
+    gradleVersion project.gradleVersion
+    destinationDir file("$buildDir/gradle-downloads")
+}
+
+task companyGradleZip(type: Zip, dependsOn: downloadGradle) {
+    description 'Add extra files to company Gradle distribution'
+
+    // Name for company Gradle ZIP distribution.
+    baseName = 'company-gradle'
+    classifier = 'bin'
+
+    from zipTree(downloadGradle.destinationFile)
+    into("${downloadGradle.distributionNameBase}") {
+        into('init.d') {
+            from "src/scripts/init.d"
+        }
+        // We can do extra stuff here 
+        // to add to the company Gradle
+        // distribution ZIP file.
+    }    
+}
+
+artifacts {
+    companyGradle companyGradleZip
+}
+
+// Configure upload task for company
+// Gradle distribution ZIP.
+uploadCompanyGradle {
+    repositories {
+        // Add SSH resolver to copy the resulting
+        // company Gradle distribution to the 
+        // company webserver.
+        // user and userPassword are defined in external
+        // gradle.properties file.
+        add(new org.apache.ivy.plugins.resolver.SshResolver()) {
+            name = 'company-intranet'           
+            user = intranetUsername         
+            userPassword = intranetPassword
+            host = 'intranet'
+
+            addArtifactPattern "/Library/WebServer/Documents/tools/[artifact]-[revision]-[classifier].[ext]"           
+        }
+    }
+    uploadDescriptor = false
+
+    // We can also use Ivy/Maven repositories
+    // (or other custom repositories) to upload.
+    // Also SFTP or SSH with custom configuration
+    // is possible.
+}
+
+
+class DownloadGradle extends DefaultTask {
+    @Input 
+    String gradleVersion
+    
+    @Input 
+    File destinationDir
+    
+    @Input 
+    String gradleDownloadBase = "http://services.gradle.org/distributions"
+
+    @TaskAction 
+    doDownloadGradle() {
+        destinationFile.bytes = new URL(downloadUrl).bytes
+    }
+
+    String getDownloadUrl() {
+        "$gradleDownloadBase/$downloadFileName"
+    }
+
+    String getDistributionNameBase() {
+        "gradle-$gradleVersion"
+    }
+
+    String getDownloadFileName() {
+        "$distributionNameBase-bin.zip"
+    }
+
+    @OutputFile 
+    File getDestinationFile() {
+        new File(destinationDir, downloadFileName)
+    }
+}
+

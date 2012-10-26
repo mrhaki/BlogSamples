@@ -1,0 +1,2 @@
+// File: src/scripts/init.d/sample.gradle
+println "You are running the build with the Company Gradle"
